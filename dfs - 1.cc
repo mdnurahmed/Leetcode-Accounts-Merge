@@ -18,7 +18,7 @@ class Solution {
             s.insert(acc[i][j]);
         }
         for (auto neighbour:edge[i]) {
-            //if nofe i is visited already we wont visit it again 
+            //if node i is visited already we wont visit it again 
             if (!visited[neighbour]) {
                 dfs(neighbour, acc);
             }
@@ -37,7 +37,7 @@ class Solution {
         for (int i = 0; i < acc.size(); i++) {
             for (int j = 1; j < acc[i].size(); j++) {
 
-                //All the idnexes are neighbour of node i where email acc[i][j] was seen before
+                //All the indexes are neighbour of node i where email acc[i][j] was seen before
                 if (mp.find(acc[i][j]) != mp.end()) {
                     for (auto neighbour : mp[acc[i][j]]) {
                         edge[i].insert(neighbour);
