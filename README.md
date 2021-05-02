@@ -40,31 +40,31 @@ If any email appears in mutliple accounts then we can assume all the emails in a
 
 In other words , if any email in accounts[i] also appear in account[j] then all the emails in those 2 accounts belong to same graph component . All the emails belonging to a single graph component belong to one person . We can find all the emails in one component using depth first search or disjoint set union algorithm . Here I used depth first search.
 
-## Complexity Analysis 
-# Time Complexity of Constructing the graph 
+# Complexity Analysis 
+## Time Complexity of Constructing the graph 
 We can construct the graph in two ways. We can assume the accounts as nodes or emails as nodes of the graph. 
 
 We can draw an edge between two accounts if they have any common emails. Complexity of this approach is O(A^2*E) where A is number of accounts and E is number of Email in one account.
 
 Another way is we can draw an edge from an email to all the emails in the same account.Complexity of this approach is O(A*E^2) where A is number of accounts and E is number of Email in one account.
 
-# Time Complexity of Depth First Search
+## Time Complexity of Depth First Search
 No node (email or account) is visited twice. The problem wants us to sort the results. If we use C++ Set to store all the emails of one component , then it helps us to avoid overcounting same email and with sorting the emails in logarithmic time as it uses a balanced binary search tree underneath and sorts elements in real time . So overall complexity is AElog(AE) where A is number of accounts and E is number of Email in one account.
 
-# Overall Time Complexity 
+## Overall Time Complexity 
 Overall time complexity is O(A^2*E) + O(AElog(AE)) in the first solution and A*E^2 + AElog(AE) in the second solution where A is number of accounts and E is number of Email in one account.
 
-# Space Complexity of Constructing the graph 
+## Space Complexity of Constructing the graph 
 In the first solution it takes O(A) space for the visited vector, O(A^2) space to store the graph , O(É) space to store the results temporatily in the set where A is number of accounts and E is number of Email in one account , É is total number of emails.
 
 In the second solution it takes O(É) space for the visted hashset . O(É^2) space to store the graph , O(É) space to store the results temporatily in the set where É is total number of emails.
 
-# Space Complexity of Depth First Search 
+## Space Complexity of Depth First Search 
 In the first solution the dfs takes O(A) stack space. In the second solution the dfs takes O(É) stack space where A is number of accounts and É is total number of emails.
 
-# Overall Space Complexity
+## Overall Space Complexity
 Overall space complexity of first solution is O(A) + O(A^2) + O(É) + O(A) ~ O(A^2) + O(É) . Overall space complexity of second solution is O(É) + O(É^2) + O(É) + O(É) ~ O(É^2)
 
 
-## Alternative Approach 
+# Alternative Approach 
 We can use disjoint set union to solve this problem online instead of offline where we gotta construct the graph first and then do dfs . 
